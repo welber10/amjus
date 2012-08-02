@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:p="http://primefaces.org/ui">
+   <h:form>
+   		
+		<p:menubar>
+			<p:submenu label="#{messages['menu.encontro']}">
+				<p:menuitem value="#{messages['menu.encontro.cadastro']}" url="/encontro_lista.jsf" />
+			</p:submenu>
+			<p:submenu label="#{messages['menu.casal']}">
+				<p:menuitem value="#{messages['menu.casal.cadastro']}" url="/casal_cadastro.jsf" />
+			</p:submenu>
+		</p:menubar>
+	</h:form>
+</ui:composition>

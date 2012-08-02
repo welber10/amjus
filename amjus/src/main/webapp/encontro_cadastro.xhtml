@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:p="http://primefaces.org/ui"
+   template="/WEB-INF/templates/padrao.xhtml">
+   <ui:define name="content">
+      <h1>#{messages['encontro.titulo']}</h1>
+
+      <h:form prependId="false">
+
+			<p:toolbar>
+				<p:toolbarGroup align="left">
+					<p:commandButton value="#{messages['button.save']}" action="#{encontroCadastro.insert}"
+						rendered="#{!encontroCadastro.updateMode}" ajax="false" />
+					<p:commandButton value="#{messages['button.save']}" action="#{encontroCadastro.update}"
+						rendered="#{encontroCadastro.updateMode}" ajax="false" />
+					<p:commandButton value="#{messages['button.delete']}" onclick="confirmation.show()"
+						rendered="#{encontroCadastro.updateMode}" type="button" immediate="true" ajax="false" />
+					<p:confirmDialog message="#{messages['label.confirm.delete']}" showEffect="bounce" hideEffect="explode"
+						header="#{messages['label.dialog.delete']}" severity="alert" widgetVar="confirmation">
+						<h:commandButton value="#{messages['button.dialog.yes']}" action="#{encontroCadastro.delete}" immediate="true"
+							ajax="false" />
+						<h:commandButton value="#{messages['button.dialog.no']}" onclick="confirmation.hide()" type="button" />
+					</p:confirmDialog>
+				</p:toolbarGroup>
+			</p:toolbar>
+
+			<br />
+
+			<p:fieldset legend="#{messages['encontro.label']}" toggleable="true" toggleSpeed="500">
+				<h:panelGrid id="fields" columns="3">
+					
+					<h:outputLabel value="#{messages['encontro.label.id']}: " for="id" styleClass="text-input" />
+					<h:outputText id="id" value="#{encontroCadastro.bean.id}" />
+					<p:message for="id" />
+					
+					<h:outputLabel value="#{messages['encontro.label.nome']}: " for="nome" styleClass="text-input" />
+					<h:inputText id="nome" value="#{encontroCadastro.bean.nome}"
+						title="#{messages['encontro.alt.nome']}" />
+					<p:message for="nome" />
+					
+					<h:outputLabel value="#{messages['encontro.label.local']}: " for="local" styleClass="text-input" />
+					<h:inputText id="local" value="#{encontroCadastro.bean.local}"
+						title="#{messages['encontro.alt.local']}" />
+					<p:message for="local" />
+					
+					<h:outputLabel value="#{messages['encontro.label.igreja']}: " for="igreja" styleClass="text-input" />
+					<h:inputText id="igreja" value="#{encontroCadastro.bean.igreja}"
+						title="#{messages['encontro.alt.igreja']}" />
+					<p:message for="igreja" />
+					
+					<h:outputLabel value="#{messages['encontro.label.inicio']}: " for="inicio" styleClass="text-input" />
+					<p:calendar id="inicio" value="#{encontroCadastro.bean.inicio}"
+					   pattern="#{messages['label.date.pattern']}" navigator="true" showButtonPanel="true"
+					   locale="#{currentLocale}" title="#{messages['encontro.alt.inicio']}" />
+					   <p:message for="inicio" />
+								
+					<h:outputLabel value="#{messages['encontro.label.fim']}: " for="fim" styleClass="text-input" />
+					<p:calendar id="fim" value="#{encontroCadastro.bean.fim}"
+					   pattern="#{messages['label.date.pattern']}" navigator="true" showButtonPanel="true"
+					   locale="#{currentLocale}" title="#{messages['encontro.alt.fim']}" />
+					   <p:message for="fim" />
+								
+				</h:panelGrid>
+			</p:fieldset>
+		</h:form>
+
+   </ui:define>
+</ui:composition>

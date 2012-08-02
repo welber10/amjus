@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:p="http://primefaces.org/ui"
+   template="/WEB-INF/templates/padrao.xhtml">
+   <ui:define name="content">
+      <h1>#{messages['encontro.titulo']}</h1>
+
+      <h:form prependId="false">
+      	
+      	<p:button outcome="encontro_cadastro" value="Novo" icon="new_button"></p:button>
+      	
+      	<p:dataTable id="lsEncontro" var="encontro" value="#{encontros}">
+      		<p:column>
+      			<f:facet name="header">
+      				Nome
+      			</f:facet>
+      			<h:outputText value="#{encontro.nome}" />
+      		</p:column>
+      		
+      		<p:column>
+      			<f:facet name="header">
+      				Local
+      			</f:facet>
+      			<h:outputText value="#{encontro.local}" />
+      		</p:column>
+      		
+      		<p:column>
+      			<f:facet name="header">
+      				Igreja
+      			</f:facet>
+      			<h:outputText value="#{encontro.igreja}" />
+      		</p:column>
+      		
+      		<p:column>
+      			<f:facet name="header">
+      				Inicio
+      			</f:facet>
+      			<h:outputText value="#{encontro.inicio}" />
+      		</p:column>
+      		
+      		<p:column>
+      			<f:facet name="header">
+      				Fim
+      			</f:facet>
+      			<h:outputText value="#{encontro.fim}" />
+      		</p:column>
+      	</p:dataTable>
+
+	  </h:form>
+
+   </ui:define>
+</ui:composition>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:p="http://primefaces.org/ui"
+   template="/WEB-INF/templates/default.xhtml">
+   <ui:define name="content">
+      <h1>Welcome to JBoss AS 7!</h1>
+
+	  <h:panelGrid>
+		<p:messages />
+		
+		<h:form id="login">
+			<p:panel header="Login" footer="digite sua senha" closable="true" style="with: 350px">
+				<h:panelGrid columns="2">
+					<h:outputLabel value="Usuario:" />
+					<h:inputText id="usuario" required="true" requiredMessage="Campo [usuario] obrigatorio" />
+					
+					<h:outputLabel value="Senha:"/>
+					<p:password minLength="6" promptLabel="Digite sua senha"/>
+					
+					<h:commandButton id="login" action="inicio" value="#{messages['button.login']}" />
+				</h:panelGrid>
+			</p:panel>
+      	</h:form>
+		
+	  </h:panelGrid>
+             
+   </ui:define>
+</ui:composition>
